@@ -12,9 +12,17 @@
            <div class="user-info">
               <a href="#" class="user-name">{{userById(postById(postId).userId).name}}</a>
               <a href="#">
-                <img class="avatar-large" src="http://i.imgur.com/s0AzOkO.png" alt="" />
+                <img class="avatar-large" :src="userById(postById(postId).userId).avatar" alt="" /> <!--"http://i.imgur.com/s0AzOkO.png"-->
               </a>
-              <a href="#" class="user-name">{{userById(postById(postId).userId).name}}</a>
+              <p class="desktop-only text-small">107 posts</p>
+           </div>
+           <div class="post-content">
+              <div>
+                <p>
+                  Lorem ipsum content  Lorem ipsum content  Lorem ipsum content
+                </p>
+              </div>
+            <a href="#" style="margin-left: auto;" class="link-unstyled" title="make a change"><i class="fa fa-pencil"></i></a>
            </div>
       </div>
     </div>
