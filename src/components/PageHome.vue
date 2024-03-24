@@ -16,25 +16,18 @@
  </div>
 </template>
 
-<script>
+<script setup>
 import sourceData from '@/data.json'
-export default {
-  data () {
-    return {
-      threads: sourceData.threads,
-      posts: sourceData.posts,
-      users: sourceData.users
-    }
-  },
-  methods: {
-    postById (postId) {
-      return this.posts.find(p => p.id === postId)
-    },
-    userById (userId) {
-      return this.users.find(p => p.id === userId)
-    }
+import { reactive } from 'vue'
+const threads = reactive(sourceData.threads)
+const posts = reactive(sourceData.posts)
+const users = reactive(sourceData.users)
 
-  }
+function postById (postId) {
+  return this.posts.find(p => p.id === postId)
+}
+function userById (userId) {
+  return this.users.find(p => p.id === userId)
 }
 </script>
 
