@@ -3,11 +3,6 @@
 <div v-for="thread in threads" :key="thread.id" class="col-large push-top">
    <h1>{{thread.title}}</h1>
     <div  class="post-list">
-      <div v-for="postId in thread.posts" :key="postId">
-        <p> {{userById(postById(postId).userId).name}}</p>
-        <p>{{postById(postId).text}}</p>
-      </div>
-
       <div class="post" v-for="postId in thread.posts" :key="postId">
            <div class="user-info">
               <a href="#" class="user-name">{{userById(postById(postId).userId).name}}</a>
@@ -19,29 +14,18 @@
            <div class="post-content">
               <div>
                 <p>
-                  Lorem ipsum content  Lorem ipsum content  Lorem ipsum content
+                  {{postById(postId).text}}
                 </p>
               </div>
-            <a href="#" style="margin-left: auto;" class="link-unstyled" title="make a change"><i class="fa fa-pencil"></i></a>
+            <!--a href="#" style="margin-left: auto;" class="link-unstyled" title="make a change"><i class="fa fa-pencil"></i></a-->
+           </div>
+           <div class="post-date text-faded">
+             {{ postById(postId).publishedAt }}
            </div>
       </div>
     </div>
 </div>
 
- <div>Hello from  PageHome</div>
- <div v-for="thread in threads" :key="thread.id">
-   <h1>{{thread.title}}</h1>
-   <div v-for="postId in thread.posts" :key="postId">
-    <!--p>
-       {{users.find(u=>u.id===posts.find(p=>p.id===postId).userId).name}}
-    </p-->
-    <!--p>
-      {{//posts.find(p=>p.id===postId).text}}
-    </p-->
-    <p> {{userById(postById(postId).userId).name}}</p>
-    <p>{{postById(postId).text}}</p>
-  </div>
- </div>
 </template>
 
 <script setup>
