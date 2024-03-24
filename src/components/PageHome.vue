@@ -1,5 +1,25 @@
 <!-- eslint-disable vue/require-v-for-key -->
 <template>
+<div v-for="thread in threads" :key="thread.id" class="col-large push-top">
+   <h1>{{thread.title}}</h1>
+    <div  class="post-list">
+      <div v-for="postId in thread.posts" :key="postId">
+        <p> {{userById(postById(postId).userId).name}}</p>
+        <p>{{postById(postId).text}}</p>
+      </div>
+
+      <div class="post" v-for="postId in thread.posts" :key="postId">
+           <div class="user-info">
+              <a href="#" class="user-name">{{userById(postById(postId).userId).name}}</a>
+              <a href="#">
+                <img class="avatar-large" src="http://i.imgur.com/s0AzOkO.png" alt="" />
+              </a>
+              <a href="#" class="user-name">{{userById(postById(postId).userId).name}}</a>
+           </div>
+      </div>
+    </div>
+</div>
+
  <div>Hello from  PageHome</div>
  <div v-for="thread in threads" :key="thread.id">
    <h1>{{thread.title}}</h1>
@@ -18,8 +38,8 @@
 
 <script setup>
 import sourceData from '@/data.json'
-import { reactive, ref } from 'vue'
-const threads = ref(sourceData.threads)
+import { ref } from 'vue' // removed reactive
+const threads = ref(sourceData.threads) // if threads is underlined, update you package.json // npm i eslint-plugin-vue@8 if you used 7 version as for i used": "^8.0.3
 const posts = ref(sourceData.posts)
 const users = ref(sourceData.users)
 
