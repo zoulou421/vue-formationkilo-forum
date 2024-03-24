@@ -18,16 +18,16 @@
 
 <script setup>
 import sourceData from '@/data.json'
-import { reactive } from 'vue'
-const threads = reactive(sourceData.threads)
-const posts = reactive(sourceData.posts)
-const users = reactive(sourceData.users)
+import { reactive, ref } from 'vue'
+const threads = ref(sourceData.threads)
+const posts = ref(sourceData.posts)
+const users = ref(sourceData.users)
 
 function postById (postId) {
-  return this.posts.find(p => p.id === postId)
+  return posts.value.find(p => p.id === postId)
 }
 function userById (userId) {
-  return this.users.find(p => p.id === userId)
+  return users.value.find(p => p.id === userId)
 }
 </script>
 
