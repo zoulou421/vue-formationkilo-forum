@@ -5,12 +5,18 @@ import PageHome from '@/components/PageHome.vue'
 // import { createRouter, createWebHashHistory } from 'vue-router'
 // import *as VueRouter from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router'
+import PageThreadShow from '@/components/PageThreadShow.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: PageHome
+  },
+  {
+    path: '/thread',
+    name: 'ThreadShow',
+    component: PageThreadShow
   }
 ]
 
